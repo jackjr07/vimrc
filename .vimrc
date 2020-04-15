@@ -14,6 +14,9 @@ set smarttab
 set hlsearch
 set incsearch
 set ruler
+set colorcolumn=90
+set splitbelow
+set splitright
 
 syntax enable
 
