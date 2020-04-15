@@ -17,6 +17,10 @@ set ruler
 set colorcolumn=90
 set splitbelow
 set splitright
+set showcmd
+set laststatus=2
+set ruler
+set cursorline
 
 syntax enable
 
