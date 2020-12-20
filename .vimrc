@@ -1,27 +1,45 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+syntax on
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'itchyny/lightline.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'alvan/vim-closetag'
+Plugin 'ycm-core/YouCompleteMe'
 
-
+Bundle 'edkolev/tmuxline.vim'
 
 call vundle#end()
 filetype plugin indent on
 
-" let Vundle manage Vundle, required
-syntax on
+" lightline config
+" Remove last line - If I have lightline
+set noshowmode
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \}
+
+" vim-close tag config
+let g:closetag_filenames = '*.html'
+let g:closetag_filetypes = 'html'
+let g:closetag_xhtml_filetypes = 'xhtml, jsx'
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
 
 " Set Airline bar theme
 let g:airline_theme='bubblegum'
+
+" Tmux status line
 
 "rainbow Plugin Options (luochen1990/rainbow)
 let g:rainbow_active = 1    " 0 if you want to enable it later via :RainbowToggle
 
 " Colour at column 80
-set colorcolumn=80
+set colorcolumn=100
 
 " --------------------------------
 " Basic stuff
@@ -93,4 +111,6 @@ set laststatus=2
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%d/%m/%y_%H:%M:%S')}\
 
 " NERDTree
-map <F12> :NERDTreeToggle<CR>
+map <c-m> :NERDTreeToggle<CR>
+let NERDTreeMapOpenTab= '<ENTER>'
+
