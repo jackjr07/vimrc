@@ -10,11 +10,15 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'alvan/vim-closetag'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'mattn/emmet-vim'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'prettier/vim-prettier'
 
 Bundle 'edkolev/tmuxline.vim'
 
 call vundle#end()
-filetype plugin indent on
+filetype indent on
 
 " lightline config
 " Remove last line - If I have lightline
@@ -48,6 +52,7 @@ let g:mapleader = " " " Set leader to spacebar
 set spelllang=en_gb
 set backspace=indent,eol,start " Bring backspace to life
 set number          " Line numbers
+set number relativenumber
 set hlsearch        " Highlight whole word when searching
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...except when serach query contains a capital letter
@@ -114,3 +119,10 @@ set laststatus=2
 map <c-m> :NERDTreeToggle<CR>
 let NERDTreeMapOpenTab= '<ENTER>'
 
+
+"Auto change numberset"
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
